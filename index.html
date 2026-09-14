@@ -1,0 +1,310 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aulia Shop</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #8bc34a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 15px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .produk {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            width: 220px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px gray;
+        }
+
+        .card img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        #keranjang {
+            background-color: white;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .item-keranjang {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .checkout {
+            background-color: #25D366;
+            width: 100%;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🥑 AULIA SHOP 🦋</h1>
+    <p>Jus Alpukat • Capung • Photocard K-Pop</p>
+</header>
+
+<nav>
+    <a href="#produk">Produk</a>
+    <a href="#keranjang">Keranjang 🛒</a>
+</nav>
+
+<div class="container">
+
+    <h2 id="produk">DAFTAR PRODUK</h2>
+
+    <div class="produk">
+
+        <!-- PRODUK 1 -->
+        <div class="card">
+            <img src="jus-alpukat.jpg" alt="Jus Alpukat">
+
+            <h3>Jus Alpukat</h3>
+            <p>Jus alpukat segar dan enak.</p>
+            <p><b>Rp10.000</b></p>
+
+            <button onclick="tambahKeranjang('Jus Alpukat', 10000)">
+                Tambah ke Keranjang
+            </button>
+        </div>
+
+
+        <!-- PRODUK 2 -->
+        <div class="card">
+            <img src="capung.jpg" alt="Capung">
+
+            <h3>Capung</h3>
+            <p>Produk bertema hewan capung.</p>
+            <p><b>Rp15.000</b></p>
+
+            <button onclick="tambahKeranjang('Capung', 15000)">
+                Tambah ke Keranjang
+            </button>
+        </div>
+
+
+        <!-- PRODUK 3 -->
+        <div class="card">
+            <img src="photocard-kpop.jpg" alt="Photocard K-Pop">
+
+            <h3>Photocard Idol K-Pop</h3>
+            <p>Photocard idol K-Pop untuk koleksi.</p>
+            <p><b>Rp20.000</b></p>
+
+            <button onclick="tambahKeranjang('Photocard Idol K-Pop', 20000)">
+                Tambah ke Keranjang
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- KERANJANG -->
+    <div id="keranjang">
+
+        <h2>🛒 KERANJANG BELANJA</h2>
+
+        <div id="isiKeranjang">
+            Keranjang masih kosong.
+        </div>
+
+        <h3>
+            Total:
+            Rp<span id="total">0</span>
+        </h3>
+
+        <button class="checkout" onclick="checkoutWhatsApp()">
+            📱 Checkout melalui WhatsApp
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    // Tempat menyimpan produk yang dipilih
+    let keranjang = [];
+
+    // Fungsi menambahkan produk
+    function tambahKeranjang(nama, harga) {
+
+        keranjang.push({
+            nama: nama,
+            harga: harga
+        });
+
+        tampilkanKeranjang();
+
+        alert(nama + " berhasil ditambahkan ke keranjang!");
+    }
+
+
+    // Fungsi menampilkan keranjang
+    function tampilkanKeranjang() {
+
+        let isi = document.getElementById("isiKeranjang");
+
+        let total = 0;
+
+        if (keranjang.length == 0) {
+
+            isi.innerHTML = "Keranjang masih kosong.";
+
+        } else {
+
+            isi.innerHTML = "";
+
+            keranjang.forEach(function(produk, index) {
+
+                total = total + produk.harga;
+
+                isi.innerHTML += `
+                    <div class="item-keranjang">
+
+                        ${produk.nama}
+                        - Rp${produk.harga.toLocaleString("id-ID")}
+
+                        <button onclick="hapusProduk(${index})">
+                            Hapus
+                        </button>
+
+                    </div>
+                `;
+            });
+        }
+
+        document.getElementById("total").innerHTML =
+            total.toLocaleString("id-ID");
+    }
+
+
+    // Fungsi menghapus produk
+    function hapusProduk(index) {
+
+        keranjang.splice(index, 1);
+
+        tampilkanKeranjang();
+    }
+
+
+    // Fungsi checkout WhatsApp
+    function checkoutWhatsApp() {
+
+        if (keranjang.length == 0) {
+
+            alert("Keranjang masih kosong!");
+
+            return;
+        }
+
+
+        let pesan = "Halo Aulia Shop, saya ingin memesan:%0A%0A";
+
+        let total = 0;
+
+
+        keranjang.forEach(function(produk, index) {
+
+            pesan +=
+                (index + 1) +
+                ". " +
+                produk.nama +
+                " - Rp" +
+                produk.harga.toLocaleString("id-ID") +
+                "%0A";
+
+            total = total + produk.harga;
+
+        });
+
+
+        pesan +=
+            "%0ATotal: Rp" +
+            total.toLocaleString("id-ID") +
+            "%0A%0A" +
+            "Nama:%0A" +
+            "Alamat:%0A" +
+            "Jumlah pesanan:";
+
+
+        // GANTI DENGAN NOMOR WHATSAPP KAMU
+        let nomorWhatsApp = "628881182580";
+
+
+        let url =
+            "https://wa.me/" +
+            nomorWhatsApp +
+            "?text=" +
+            pesan;
+
+
+        window.open(url, "_blank");
+    }
+
+</script>
+
+</body>
+</html>
+```
