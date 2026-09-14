@@ -2,85 +2,118 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Amalia Corner</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Lia Shop</title>
 
     <style>
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, sans-serif;
-            background: #f4fbff;
-            color: #45606d;
+            background: #f5fcff;
+            color: #405866;
         }
 
+
+        /* HEADER */
+
         header {
-            background: #bde7f8;
-            padding: 20px 8%;
+            background: #b9e5f7;
+            padding: 18px 8%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         header h2 {
-            color: #28799e;
+            color: #287b9f;
         }
 
         nav a {
+            color: #405866;
             text-decoration: none;
-            color: #45606d;
             margin-left: 18px;
             font-weight: bold;
         }
 
         nav a:hover {
-            color: #238abd;
+            color: #208fc0;
         }
+
+
+        /* HOME */
 
         .hero {
             text-align: center;
-            padding: 100px 20px;
             background: #dff4fc;
+            padding: 90px 20px;
         }
 
         .hero h1 {
+            color: #287b9f;
             font-size: 45px;
-            color: #28799e;
+            margin-bottom: 15px;
+        }
+
+        .hero h3 {
             margin-bottom: 15px;
         }
 
         .hero p {
-            margin: 15px auto 25px;
             max-width: 550px;
+            margin: 0 auto 25px;
             line-height: 1.6;
         }
 
         .btn {
             display: inline-block;
-            background: #55add1;
+
+            background: #55acd0;
             color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
+
             border: none;
+            padding: 11px 22px;
+
+            border-radius: 20px;
+
+            text-decoration: none;
             cursor: pointer;
             font-weight: bold;
         }
 
+        .btn:hover {
+            background: #287b9f;
+        }
+
+
+        /* SECTION */
+
         section {
-            padding: 60px 8%;
+            padding: 55px 8%;
         }
 
         .judul {
             text-align: center;
-            color: #28799e;
+            color: #287b9f;
             margin-bottom: 10px;
         }
 
@@ -88,6 +121,9 @@
             text-align: center;
             margin-bottom: 30px;
         }
+
+
+        /* PRODUK */
 
         .produk-container {
             display: flex;
@@ -98,11 +134,16 @@
 
         .produk {
             width: 280px;
+
             background: white;
+
             border-radius: 15px;
+
             overflow: hidden;
-            box-shadow: 0 4px 12px #c9e6f2;
+
             text-align: center;
+
+            box-shadow: 0 4px 12px #c8e6f2;
         }
 
         .produk img {
@@ -117,51 +158,87 @@
 
         .produk h3 {
             margin-bottom: 10px;
-            color: #45606d;
         }
 
         .harga {
-            color: #2995c5;
+            color: #2695c4;
             font-weight: bold;
             margin-bottom: 15px;
         }
 
-        #keranjang {
+
+        /* CART */
+
+        #cart {
             background: #dff4fc;
         }
 
-        .cart {
+        .cart-box {
             max-width: 650px;
+
             margin: auto;
+
             background: white;
+
             padding: 25px;
+
             border-radius: 15px;
         }
 
         .item {
-            background: #f0faff;
-            padding: 15px;
+            background: #effaff;
+
+            padding: 12px;
+
             margin: 10px 0;
+
             border-radius: 10px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 10px;
         }
 
         .item button {
             border: none;
-            background: #55add1;
+
+            background: #55acd0;
+
             color: white;
-            padding: 5px 10px;
+
+            padding: 7px 12px;
+
             border-radius: 15px;
+
             cursor: pointer;
         }
 
-        .total {
-            border-top: 2px solid #c8e8f4;
-            margin-top: 20px;
-            padding-top: 15px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
+        .item button:hover {
+            background: #287b9f;
         }
+
+        .total {
+            border-top: 2px solid #c5e5f1;
+
+            padding-top: 15px;
+
+            margin-top: 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-weight: bold;
+
+            color: #287b9f;
+        }
+
+
+        /* ABOUT */
 
         #about {
             text-align: center;
@@ -169,31 +246,56 @@
 
         #about p {
             max-width: 700px;
+
             margin: auto;
+
             line-height: 1.7;
         }
 
+
+        /* CONTACT */
+
         #contact {
-            background: #c9ecfa;
             text-align: center;
+
+            background: #c9ebf8;
         }
+
+        #contact p {
+            margin-bottom: 20px;
+        }
+
+
+        /* FOOTER */
 
         footer {
             background: #47788d;
+
             color: white;
+
             text-align: center;
+
             padding: 20px;
         }
+
+
+        /* HP */
 
         @media (max-width: 600px) {
 
             header {
                 flex-direction: column;
+
                 gap: 15px;
+            }
+
+            nav {
+                text-align: center;
             }
 
             nav a {
                 margin: 5px;
+
                 font-size: 14px;
             }
 
@@ -201,58 +303,87 @@
                 font-size: 35px;
             }
 
+            .item {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .item button {
+                width: 100%;
+            }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
+
+    <!-- HEADER -->
+
     <header>
 
-        <h2>☁ Amalia Corner</h2>
+        <h2>☁ Lia Shop</h2>
 
         <nav>
+
             <a href="#home">Home</a>
+
             <a href="#shop">Shop</a>
-            <a href="#keranjang">Cart</a>
+
+            <a href="#cart">Cart</a>
+
             <a href="#about">About</a>
+
             <a href="#contact">Contact</a>
+
         </nav>
 
     </header>
 
 
+    <!-- HOME -->
+
     <section class="hero" id="home">
 
-        <h1>AMALIA CORNER</h1>
+        <h1>LIA SHOP</h1>
 
         <h3>Temukan favoritmu ♡</h3>
 
         <p>
-            Selamat datang di Amalia Corner.
-            Temukan berbagai produk menarik
-            dengan mudah dan praktis.
+            Selamat datang di Lia Shop!
+            Temukan berbagai produk pilihan
+            yang menarik dan cocok untukmu.
         </p>
 
         <a href="#shop" class="btn">
-            Lihat Produk
+            Belanja Sekarang
         </a>
 
     </section>
 
 
+    <!-- SHOP -->
+
     <section id="shop">
 
-        <h2 class="judul">Produk Pilihan</h2>
+        <h2 class="judul">
+            Produk Kami
+        </h2>
 
         <p class="subjudul">
             Pilih produk favoritmu!
         </p>
 
+
         <div class="produk-container">
 
+
+            <!-- JUS ALPUKAT -->
 
             <div class="produk">
 
@@ -261,19 +392,27 @@
 
                 <div class="produk-info">
 
-                    <h3>Jus Alpukat</h3>
+                    <h3>
+                        Jus Alpukat
+                    </h3>
 
-                    <p class="harga">Rp12.000</p>
+                    <p class="harga">
+                        Rp12.000
+                    </p>
 
                     <button class="btn"
                         onclick="tambah('Jus Alpukat',12000)">
+
                         + Keranjang
+
                     </button>
 
                 </div>
 
             </div>
 
+
+            <!-- CAPUNG -->
 
             <div class="produk">
 
@@ -282,19 +421,27 @@
 
                 <div class="produk-info">
 
-                    <h3>Capung Lucu</h3>
+                    <h3>
+                        Capung Lucu
+                    </h3>
 
-                    <p class="harga">Rp35.000</p>
+                    <p class="harga">
+                        Rp35.000
+                    </p>
 
                     <button class="btn"
                         onclick="tambah('Capung Lucu',35000)">
+
                         + Keranjang
+
                     </button>
 
                 </div>
 
             </div>
 
+
+            <!-- PHOTOCARD -->
 
             <div class="produk">
 
@@ -303,13 +450,19 @@
 
                 <div class="produk-info">
 
-                    <h3>Photocard K-Pop</h3>
+                    <h3>
+                        Photocard K-Pop
+                    </h3>
 
-                    <p class="harga">Rp20.000</p>
+                    <p class="harga">
+                        Rp20.000
+                    </p>
 
                     <button class="btn"
                         onclick="tambah('Photocard K-Pop',20000)">
+
                         + Keranjang
+
                     </button>
 
                 </div>
@@ -321,21 +474,30 @@
     </section>
 
 
-    <section id="keranjang">
+    <!-- CART -->
 
-        <div class="cart">
+    <section id="cart">
 
-            <h2 class="judul">🛒 Keranjang</h2>
+        <div class="cart-box">
+
+            <h2 class="judul">
+                🛒 Keranjang Belanja
+            </h2>
 
             <div id="isi">
+
                 <p style="text-align:center;">
                     Keranjang masih kosong.
                 </p>
+
             </div>
+
 
             <div class="total">
 
-                <span>Total</span>
+                <span>
+                    Total
+                </span>
 
                 <span id="total">
                     Rp0
@@ -348,54 +510,65 @@
     </section>
 
 
+    <!-- ABOUT -->
+
     <section id="about">
 
         <h2 class="judul">
-            Tentang Amalia Corner
+            Tentang Lia Shop
         </h2>
 
         <p>
-            Amalia Corner adalah toko online sederhana
+            Lia Shop adalah toko online sederhana
             yang menyediakan berbagai produk pilihan.
             Website ini dibuat agar pelanggan dapat
-            melihat produk dan memasukkannya ke keranjang
-            dengan mudah.
+            melihat produk dan memasukkannya ke
+            keranjang dengan mudah.
         </p>
 
     </section>
 
 
+    <!-- CONTACT -->
+
     <section id="contact">
 
-        <h2 class="judul">Contact</h2>
+        <h2 class="judul">
+            Contact
+        </h2>
 
         <p>
             Ingin bertanya atau melakukan pemesanan?
         </p>
 
-        <br>
-
         <a class="btn"
-           href="https://wa.me/6285733037573"
+           href="https://wa.me/628881182580"
            target="_blank">
+
             Chat WhatsApp
+
         </a>
 
     </section>
 
 
+    <!-- FOOTER -->
+
     <footer>
 
         <p>
-            © 2026 Amalia Corner ♡
+            © 2026 Lia Shop
         </p>
 
     </footer>
 
 
+    <!-- JAVASCRIPT -->
+
     <script>
 
         let keranjang = [];
+
 
         function tambah(nama, harga) {
 
@@ -408,44 +581,6 @@
 
         }
 
-        function tampilkan() {
-
-            let isi = document.getElementById("isi");
-
-            let total = 0;
-
-            isi.innerHTML = "";
-
-            keranjang.forEach(function(item, index) {
-
-                total += item.harga;
-
-                isi.innerHTML += `
-                    <div class="item">
-
-                        ${item.nama}
-                        - Rp${item.harga.toLocaleString("id-ID")}
-
-                        <button onclick="hapus(${index})">
-                            Hapus
-                        </button>
-
-                    </div>
-                `;
-
-            });
-
-            if (keranjang.length == 0) {
-
-                isi.innerHTML =
-                "<p style='text-align:center;'>Keranjang masih kosong.</p>";
-
-            }
-
-            document.getElementById("total").innerText =
-                "Rp" + total.toLocaleString("id-ID");
-
-        }
 
         function hapus(index) {
 
@@ -455,7 +590,65 @@
 
         }
 
+
+        function tampilkan() {
+
+            let isi =
+                document.getElementById("isi");
+
+            let total = 0;
+
+            isi.innerHTML = "";
+
+
+            keranjang.forEach(
+                function(item, index) {
+
+                    total += item.harga;
+
+                    isi.innerHTML += `
+
+                        <div class="item">
+
+                            <span>
+                                ${item.nama}
+                                - Rp${item.harga.toLocaleString("id-ID")}
+                            </span>
+
+                            <button
+                                onclick="hapus(${index})">
+
+                                Hapus
+
+                            </button>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            if (keranjang.length == 0) {
+
+                isi.innerHTML = `
+                    <p style="text-align:center;">
+                        Keranjang masih kosong.
+                    </p>
+                `;
+
+            }
+
+
+            document.getElementById("total").innerText =
+                "Rp" + total.toLocaleString("id-ID");
+
+        }
+
     </script>
 
+
 </body>
+
     </html>
